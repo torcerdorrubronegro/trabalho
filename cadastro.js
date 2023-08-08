@@ -2,7 +2,7 @@ const write =  require("fs").writeFileSync
 const input=require('readline-sync').question;
 const read =  require("fs").readFileSync
 trabalho = 0
-id=0
+
 function cadrastroo(){
        b = input("digite o nome: ")
        c = input("digite a matricula: ")
@@ -10,12 +10,15 @@ function cadrastroo(){
        e = input("digite a nota: ")
          
        conteudo = read("trabalho.csv", {encoding: "utf-8"})
+      repertorio = conteudo.split("\n")
+      elemento=(repertorio.length-1)
+      console.log((elemento.substr(1)))
+      
       if(conteudo=="sep=;\nid;nome;matricula;idade;nota"){
             id=1
       }
-      
       trabalho = "\n"+id+";"+b+";"+c+";"+d+";"+e+";"
-       write("trabalho.csv",trabalho.toString(), {flag: "a"});
+      write("trabalho.csv",trabalho.toString(), {flag: "a"});
 }
 
 cadrastroo()
